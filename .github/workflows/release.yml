@@ -15,7 +15,8 @@ jobs:
       - name: Build project
         run: |
           cargo build --release --locked
-          tar -czvf target/release/nscat.tar.gz target/release/nscat
+          mv target/release/nscat nscat
+          tar -czvf nscat.tar.gz nscat
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -33,6 +34,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: target/release/nscat.tar.gz
+          asset_path: nscat.tar.gz
           asset_name: nscat-linx-amd64.tar.gz
           asset_content_type: application/zip
