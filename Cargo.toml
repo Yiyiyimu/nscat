@@ -1,5 +1,5 @@
 [package]
-name = "nscat"
+name = "nsexec"
 version = "0.1.0"
 authors = ["yiyiyimu <wosoyoung@gmail.com>"]
 edition = "2018"
